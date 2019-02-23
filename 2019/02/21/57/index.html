@@ -396,7 +396,7 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <!--markdown-->很久之前的笔记整理下<br><br>MX代表的是MaileXchange，当一封邮件要发送出去的时候，邮件主机会先分析那封信的目标的DNS 先取得MX标志（注意 MX标志可能会有多部主机)然后以最优先MX主机为准将信发送出去<br><br>我们熟悉的outlook、foxmail等都是用来收信和发信的，称之为MUA:mail user agent，邮件用户代理<br><br>MUA并非直接将邮件发送至收件人手中，而是通过MTA:Mail Transfer Agent，邮件传输代理代传递，sendmail和postfix就是扮演MTA的角色<br><br>一封邮件的流程是：<br>发件人：<figure class="highlight plain"><figcaption><span>MTA --> 若干个MTA -> MTA -> MDA <-- 收取 --mua:收件人```< span></--></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">MUA到MTA,以及MTA到MTA之间使用的协议就是SMTP协议，而收邮件时，MUA到MDA之间使用的协议是最常用的POP3或IMAP。</span><br></pre></td></tr></table></figure>
-<p>MUA: 用户代理端，即用户使用的写信、收信客户端软件<br>MTA:邮件传送端，即常说的邮件服务器，用于转发、收取用户邮件<br>MDA:邮件代理端，相当于MUA和MTA的中间人，可用于过滤垃圾邮件<br>POP:邮局协议，用于MUA连接服务器收取用户邮件，通讯端口110<br>IMOP:互联网应用协议，功能较多POP多，通信端口143<br>SMTP:简单邮件传送协议，MUA连接MTA或MTA连接MTA发送邮件使用此协议，通讯端口25<br><code>`</code><br><img src="http://www.52sec.me/usr/uploads/2018/08/3640427257.gif" alt="mail-flow.gif"></p>
+<p>MUA: 用户代理端，即用户使用的写信、收信客户端软件<br>MTA:邮件传送端，即常说的邮件服务器，用于转发、收取用户邮件<br>MDA:邮件代理端，相当于MUA和MTA的中间人，可用于过滤垃圾邮件<br>POP:邮局协议，用于MUA连接服务器收取用户邮件，通讯端口110<br>IMOP:互联网应用协议，功能较多POP多，通信端口143<br>SMTP:简单邮件传送协议，MUA连接MTA或MTA连接MTA发送邮件使用此协议，通讯端口25<br><code>`</code><br><img src="http://118.126.66.150/52sec/08/3640427257.gif" alt="mail-flow.gif"></p>
 <p>1）发信端于收信端两台主机间会经过一个握手（ehlo）的阶段，此时发信端会被记录为发信来源<br>（而不是mail from）。通过握手后就可以进行邮件标题（header）的传送<br>2）此时收信端主机会分析标题的信息，若邮件的“mail to:主机名”为收信端主机，且该名称符合mydestination的设置，则该邮件会开始被接受到队列，并进一步送到mailbox当中；若不符合mydestination<br>的设置，则终止连接且不会进行邮件内容的传送<br>3）若“mail to：主机名“不是收信端本身，则开始进行中继转发（relay）的分析<br>4）转发过程首先分析该邮件的来源是否符合信任的客户端<br>5）分析邮件来源或目标是否符合relay_domains的设置，若符合则邮件将接受至队列，并等待MDA将邮件再转发出去<br>6）若这封邮件的标题数据都不符合上述的规范，则终止连接，并不会接受邮件的内容数据。</p>
 
     </article>
@@ -406,7 +406,7 @@ height:50vh;
             <p>原文作者：<a href="https://vuln.top">Fidcer</a>
             </p><p>原文链接：<a href="https://vuln.top/2019/02/21/57/">https://vuln.top/2019/02/21/57/</a>
             </p><p>发表日期：<a href="https://vuln.top/2019/02/21/57/">February 21st 2019, 12:16:28 pm</a>
-            </p><p>更新日期：<a href="https://vuln.top/2019/02/21/57/">February 21st 2019, 12:16:28 pm</a>
+            </p><p>更新日期：<a href="https://vuln.top/2019/02/21/57/">February 23rd 2019, 11:25:24 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -966,6 +966,20 @@ top:50vh;
     
         </ul>
     
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/40/">Linux软件安装 ./configure,make,make install的作用</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
     
@@ -985,7 +999,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/40/">Linux软件安装 ./configure,make,make install的作用</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/66/">CVE-2017-11882复现</a>
         </li>
     
     
@@ -1000,20 +1014,6 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/77/">isg 3道web wp</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/66/">CVE-2017-11882复现</a>
         </li>
     
     
