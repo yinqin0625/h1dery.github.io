@@ -346,6 +346,37 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/07/18/uscms/">
+            
+                <span>Uscms代码审计</span>
+        </a>
+        <div class="abstract-content">
+            #0x01 第一处：前台任意文件删除漏洞信息：前台myup.php文件最后一段存在任意文件删除代码：
+漏洞点：http://xxx/myup.php
+
+第47行只对..做了过滤,我仍然能任意删除网站内的文件，直接构造poc,
+
+
+Burp POC：
+
+1234567891011121314POST /UsualToolCMS/myup.php HTTP/1.1Host: 192.168.235.242User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:48.0) Gecko/20100101 Firefox/48.0Accept: te...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/18</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/04/26/2019-48814/">
             
                 <span>cnvd-c-2019-48814 批量getshell</span>
@@ -565,30 +596,6 @@ socket类型    描述socket.AF_UNIX    只能够用于单一的Unix系统进程
 rm -f Gemfile.lock切换到root模式下先把这玩意删了不然会有缓存
 然后运行bundle installl后发现发现还要安装 nokogiri -v 1.8.4
 本想着通过gem能直接安装的后来发现我想多了，上帝不想让我睡...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/21</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/21/124/">
-            
-                <span>记录下一道web题</span>
-        </a>
-        <div class="abstract-content">
-            题目名:真假难辨点击页面的时候我发现这个页面没有表单。。习惯性的扫了下目录文件发现有一个.test.php.swp
-发现mysql账号密码一开始以为是构造表单提交到test.php里但是后来发现没啥用,没错我就说着玩的…没办法get下index.php，发现有个hint访问index22222.php,这个才是真正的页面和原来页面长得一样,但是可以递交我估计是万能密码sqlmap跑了下还真跑到了但是数据库,本地文件读取,什么的什么都没有权限,我在这上面弄了好久.只能手工构造万能密码过滤了or,and,select等…最后试到&#39;&#39;=&#39;成功绕过…后面就比较简单了闭着眼...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -975,9 +982,34 @@ rm -f Gemfile.lock切换到root模式下先把这玩意删了不然会有缓存
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 25
+        Total : 26
         </div>
         <!-- search  -->
         
@@ -988,8 +1020,27 @@ rm -f Gemfile.lock切换到root模式下先把这玩意删了不然会有缓存
     
     
     
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/124/">记录下一道web题</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href="/2019/04/26/2019-48814/">cnvd-c-2019-48814 批量getshell</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1012,49 +1063,7 @@ rm -f Gemfile.lock切换到root模式下先把这玩意删了不然会有缓存
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/124/">记录下一道web题</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/137/">豌豆杯入学ctf</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/26</span><a class="archive-post-title" href="/2019/04/26/2019-48814/">cnvd-c-2019-48814 批量getshell</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/164/">Web中的条件竞争漏洞</a>
         </li>
     
     
@@ -1088,7 +1097,26 @@ rm -f Gemfile.lock切换到root模式下先把这玩意删了不然会有缓存
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/45/">msfvenom 进阶</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/21/">某CMS V5.7 SP2 后台Getshell</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/164/">Web中的条件竞争漏洞</a>
         </li>
     
     
@@ -1167,20 +1195,6 @@ rm -f Gemfile.lock切换到root模式下先把这玩意删了不然会有缓存
     
         </ul>
     
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/45/">msfvenom 进阶</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
     <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
     
@@ -1209,12 +1223,12 @@ rm -f Gemfile.lock切换到root模式下先把这玩意删了不然会有缓存
     
         </ul>
     
-    <div class="archive-year"> 2019 </div>
+    <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/9/">python 实现局域网内arp欺骗</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/Retaddr/">Retaddr</a>
         </li>
     
     
@@ -1223,12 +1237,17 @@ rm -f Gemfile.lock切换到root模式下先把这玩意删了不然会有缓存
     
         </ul>
     
-    <div class="archive-year"> Invalid date </div>
+    <div class="archive-year"> 2019 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/Retaddr/">Retaddr</a>
+            <span class="archive-post-date">02/24</span><a class="archive-post-title" href="/2019/02/24/总结2018年/">总结2018</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/9/">python 实现局域网内arp欺骗</a>
         </li>
     
     
@@ -1256,11 +1275,6 @@ rm -f Gemfile.lock切换到root模式下先把这玩意删了不然会有缓存
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/24</span><a class="archive-post-title" href="/2019/02/24/总结2018年/">总结2018</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/让终端走代理的方法/">让终端走代理的方法</a>
         </li>
     
@@ -1276,6 +1290,20 @@ rm -f Gemfile.lock切换到root模式下先把这玩意删了不然会有缓存
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/37/">centos 6.5 自动配置vsftp http dns</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/07/18/uscms/">Uscms代码审计</a>
         </li>
     
     </ul></div>
