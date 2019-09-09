@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://vuln.top/2019/07/18/100/</loc>
+    <loc>https://vuln.top/2019/09/09/pentest/</loc>
     
-    <lastmod>2019-07-18T15:10:21.494Z</lastmod>
+    <lastmod>2019-09-09T15:12:27.915Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://vuln.top/2019/07/18/80/</loc>
     
-    <lastmod>2019-07-18T15:00:02.558Z</lastmod>
+    <lastmod>2019-07-18T15:23:42.188Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vuln.top/2019/07/18/100/</loc>
+    
+    <lastmod>2019-07-18T15:10:21.494Z</lastmod>
     
   </url>
   

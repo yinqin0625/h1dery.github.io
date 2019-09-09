@@ -346,19 +346,20 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/07/18/100/">
+        <a class="abstract-title" href="/2019/07/18/80/">
             
-                <span>帮好朋友挂个广告</span>
+                <span>Uscms代码审计</span>
         </a>
         <div class="abstract-content">
-            他的博客：https://blog.csdn.net/qq_40478570/
-博主现为上海思邱实业公司总经理，诚意招商
-营业范围：联想戴尔等主流厂商服务器，办公电脑，显示器
-华为华三思科等主流厂商数通产品，路由器，交换机，防火墙，无线等等
-提供企业网络应急维修，网络周期性维护，服务器应急维修，服务器周期性维护，云计算部署，云存储部署等等各种各样的服务
-只要你有IT行业相关的需求，那就可以联系我们
-联系方式：17621969147 李先生
+            0x01 第一处：前台任意文件删除漏洞信息：前台myup.php文件最后一段存在任意文件删除代码：
+漏洞点：http://xxx/myup.php
 
+第47行只对..做了过滤,我仍然能任意删除网站内的文件，直接构造poc,
+
+
+Burp POC：
+
+1234567891011121314POST /UsualToolCMS/myup.php HTTP/1.1Host: 192.168.235.242User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:48.0) Gecko/20100101 Firefox/48.0Accept: tex...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -376,20 +377,19 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/07/18/80/">
+        <a class="abstract-title" href="/2019/07/18/100/">
             
-                <span>Uscms代码审计</span>
+                <span>帮好朋友挂个广告</span>
         </a>
         <div class="abstract-content">
-            #0x01 第一处：前台任意文件删除漏洞信息：前台myup.php文件最后一段存在任意文件删除代码：
-漏洞点：http://xxx/myup.php
+            他的博客：https://blog.csdn.net/qq_40478570/
+博主现为上海思邱实业公司总经理，诚意招商
+营业范围：联想戴尔等主流厂商服务器，办公电脑，显示器
+华为华三思科等主流厂商数通产品，路由器，交换机，防火墙，无线等等
+提供企业网络应急维修，网络周期性维护，服务器应急维修，服务器周期性维护，云计算部署，云存储部署等等各种各样的服务
+只要你有IT行业相关的需求，那就可以联系我们
+联系方式：17621969147 李先生
 
-第47行只对..做了过滤,我仍然能任意删除网站内的文件，直接构造poc,
-
-
-Burp POC：
-
-1234567891011121314POST /UsualToolCMS/myup.php HTTP/1.1Host: 192.168.235.242User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:48.0) Gecko/20100101 Firefox/48.0Accept: te...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -808,9 +808,22 @@ Burp POC：
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 27
+        Total : 28
         </div>
         <!-- search  -->
         
@@ -850,7 +863,7 @@ Burp POC：
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/137/">豌豆杯入学ctf</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/124/">记录下一道web题</a>
         </li>
     
     
@@ -864,7 +877,7 @@ Burp POC：
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/124/">记录下一道web题</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/137/">豌豆杯入学ctf</a>
         </li>
     
     
@@ -892,7 +905,22 @@ Burp POC：
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href="/2019/09/09/pentest/">mac上msf配置环境的坑</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href="/2019/07/18/80/">Uscms代码审计</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">04/26</span><a class="archive-post-title" href="/2019/04/26/2019-48814/">cnvd-c-2019-48814 批量getshell</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/24</span><a class="archive-post-title" href="/2019/02/24/总结2018年/">总结2018</a>
         </li>
     
     
@@ -945,7 +973,7 @@ Burp POC：
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/31/">为某个项目写的简单生成csv的python脚本</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/32/">vsftpd 配置参数</a>
         </li>
     
     
@@ -959,7 +987,7 @@ Burp POC：
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/32/">vsftpd 配置参数</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/31/">为某个项目写的简单生成csv的python脚本</a>
         </li>
     
     
@@ -1001,45 +1029,7 @@ Burp POC：
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/24</span><a class="archive-post-title" href="/2019/02/24/总结2018年/">总结2018</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/45/">msfvenom 进阶</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/9/">python 实现局域网内arp欺骗</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/77/">isg 3道web wp</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/27/casino/">Casino Royale: 1</a>
         </li>
     
     
@@ -1067,7 +1057,49 @@ Burp POC：
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/Retaddr/">Retaddr</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/77/">isg 3道web wp</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/9/">python 实现局域网内arp欺骗</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/37/">centos 6.5 自动配置vsftp http dns</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/27/casino/">Casino Royale: 1</a>
         </li>
     
     
@@ -1095,21 +1127,7 @@ Burp POC：
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/37/">centos 6.5 自动配置vsftp http dns</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href="/2019/07/18/80/">Uscms代码审计</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/Retaddr/">Retaddr</a>
         </li>
     
     </ul></div>
