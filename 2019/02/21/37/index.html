@@ -10,7 +10,7 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="Fidcer">
@@ -214,14 +214,14 @@
     
     <div class="banner">
             <div class="blog-title">
-                <a href="/">Fidcer&#39;Blog</a>
+                <a href="/" >Fidcer&#39;Blog</a>
             </div>
             <div class="post-title">
                 <a href="#" class="post-name">centos 6.5 自动配置vsftp http dns</a>
             </div>
     </div>
     
-    <a class="home-link" href="/">Fidcer'Blog</a>
+    <a class="home-link" href=/>Fidcer'Blog</a>
 </header>
     <div class="wrapper">
         <div class="site-intro" style="
@@ -395,20 +395,31 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <!--markdown-->环境:centos6.5 配置本地yum源<br>python2.7<br>[vplayer url=”<a href="http://122.228.238.158/vhot2.qqvideo.tc.qq.com/AOREL4WspnvAOiKO2cu7iWM8_Jkp7CQb0aobV2cmLjNE/r0604x83i0v.mp4?sdtfrom=v1010&amp;guid=6ca265bc1a779fedafa760ae8c67e970&amp;vkey=9769DF585EE830B610269355CBFC259995D4ABA72034F79CA48EDB29EF38A798C6385ED8D040CD7C87F50045F7DDE1CCA7E48EE1C6756C4FCF166B7B280D8E3B27A984E4C5A2867DABDC6B347F0F38BA2E9990D0F68E7E4E61BAB188EB0E6FDD305FB63483D569E29E37DC016CC4DDB87BFAA9DC97E78070&quot;" target="_blank" rel="noopener">http://122.228.238.158/vhot2.qqvideo.tc.qq.com/AOREL4WspnvAOiKO2cu7iWM8_Jkp7CQb0aobV2cmLjNE/r0604x83i0v.mp4?sdtfrom=v1010&amp;guid=6ca265bc1a779fedafa760ae8c67e970&amp;vkey=9769DF585EE830B610269355CBFC259995D4ABA72034F79CA48EDB29EF38A798C6385ED8D040CD7C87F50045F7DDE1CCA7E48EE1C6756C4FCF166B7B280D8E3B27A984E4C5A2867DABDC6B347F0F38BA2E9990D0F68E7E4E61BAB188EB0E6FDD305FB63483D569E29E37DC016CC4DDB87BFAA9DC97E78070&quot;</a>  /]<br><br><br><br>使用方法:<br>1.首先使用第ws2018生成出用户和密码<br><code>命令:python ws2018.py -i [IP段] -n [多少用户]</code><br><code>python ws2018.py -i 192.168.1.1-192.168.1.10 -n 10</code><br>2.运行setservice<br><br>自动生成用户，ip脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line">#coding=utf-8</span><br><span class="line"></span><br><span class="line">import optparse</span><br><span class="line">import random</span><br><span class="line"></span><br><span class="line">parse = optparse.OptionParser(usage=&quot;usage: %prog [options] args&quot;,version=&quot;1.1&quot;) #用optparse库设置参数</span><br><span class="line">parse.add_option(&apos;-n&apos;,dest=&apos;number&apos;,type=int,help=&apos;Student station number&apos;)</span><br><span class="line">parse.add_option(&apos;-i&apos;,dest=&apos;ip_addr&apos;,type=str,help=&apos;IP ADDRESS&apos;)</span><br><span class="line">options,args=parse.parse_args()</span><br><span class="line">print &apos;Example:python ws2018.py -n 5 -i 192.168.1.1-192.168.1.5&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def ip2num(ip):  #ip地方范围</span><br><span class="line">    ips = [int(x) for x in ip.split(&apos;.&apos;)]</span><br><span class="line">    return ips[0]&lt;&lt; 24 | ips[1]&lt;&lt; 16 | ips[2] &lt;&lt; 8 | ips[3]</span><br><span class="line">def num2ip (num):</span><br><span class="line">    return &apos;%s.%s.%s.%s&apos; % ((num &gt;&gt; 24) &amp; 0xff, (num &gt;&gt; 16) &amp; 0xff, (num &gt;&gt; 8) &amp; 0xff, (num &amp; 0xff))</span><br><span class="line">    #return &apos;%s.%s.%s.%s&apos; % ((num &amp; 0xff000000)&gt;&gt;24,(num &amp; 0x00ff0000)&gt;&gt;16,(num &amp; 0x00000ff00)&gt;&gt;8,num &amp; 0x000000ff)</span><br><span class="line">def gen_ip(ip):</span><br><span class="line">    start ,end = [ip2num(x) for x in ip.split(&apos;-&apos;)]</span><br><span class="line">    return [num2ip(num) for num in range(start,end+1) if num &amp; 0xff]</span><br><span class="line"></span><br><span class="line">Ip = gen_ip(options.ip_addr)</span><br><span class="line">opt_num = options.number + 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for g_number in range(1,opt_num):</span><br><span class="line"></span><br><span class="line">	def salt(num):</span><br><span class="line">		ws_id = &quot;ws&quot; + str(g_number)</span><br><span class="line">		</span><br><span class="line">		for salt_num in range(num):</span><br><span class="line">			str_int = &quot;qwertyuiopasdfghjkzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM&quot; #随机生成8位密码</span><br><span class="line">			sa = []</span><br><span class="line">			for i in range(8):</span><br><span class="line">				sa.append(random.choice(str_int))</span><br><span class="line">			salt = &apos;&apos;.join(sa)</span><br><span class="line">			</span><br><span class="line">			test1 = &quot;%s,%d,%s,%s,%s&quot; % (ws_id,g_number,ws_id,salt,Ip[g_number-1])</span><br><span class="line">			</span><br><span class="line"></span><br><span class="line">			print test1</span><br><span class="line">			</span><br><span class="line">			a = open(&apos;./ws2018.csv&apos;,&apos;a&apos;)</span><br><span class="line">			a.write(&quot;%s\n&quot;%test1)</span><br><span class="line">			a.close()</span><br><span class="line">	salt_number = salt(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		#ip_dest = IPy.IP(&quot;%s&quot; % str(options.ip_addr)) # 生成ip</span><br><span class="line">		#for ip_ADDR in ip_dest:</span><br><span class="line">		#	print ip_ADDR</span><br></pre></td></tr></table></figure>
-<p>vsftp虚拟用户脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import re</span><br><span class="line">import csv</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def ftp():</span><br><span class="line">	cmd_yum = os.system(&apos;yum install vsftpd db_load httpd -y&apos;)</span><br><span class="line">	with open(&apos;ws2018.csv&apos;,&apos;rb&apos;) as f:</span><br><span class="line">		reader = csv.reader(f)</span><br><span class="line">		for row in reader:</span><br><span class="line">			vsuser = open(&quot;/etc/vsftpd/vsftpuser.txt&quot;,&apos;a&apos;)</span><br><span class="line">			vsuser.write(&quot;%s\n%s\n&quot;%(row[2],row[3]))</span><br><span class="line">			vsuser.close()</span><br><span class="line">			vsf_make = os.system(&apos;mkdir -p /etc/user_dir_config&apos;)</span><br><span class="line">			vsf_touch = os.system(&quot;touch /etc/user_dir_config/%s&quot;%row[2])</span><br><span class="line">			vsf_write = open(&quot;/etc/user_dir_config/%s&quot;%row[2],&apos;w&apos;)</span><br><span class="line">			vsf_payload0 = &quot;anon_world_readable_only=NO&quot;</span><br><span class="line">			vsf_payload1 = &quot;anon_upload_enable=YES&quot;</span><br><span class="line">			vsf_payload2 = &quot;anon_mkdir_write_enable=YES&quot;</span><br><span class="line">			vsf_payload3 = &quot;anon_other_write_enable=YES&quot;</span><br><span class="line">			vsf_payload4 = &quot;local_root=/mnt/ftp/%s&quot;%row[2]</span><br><span class="line">			vsf_payload5 = &quot;write_enable=YES&quot;</span><br><span class="line"></span><br><span class="line">			vsf_write.write(&quot;%s\n%s\n%s\n%s\n%s\n%s\n&quot;%(vsf_payload5,vsf_payload0,vsf_payload1,vsf_payload2,vsf_payload3,vsf_payload4))</span><br><span class="line">			vsf_userhome = os.system(&quot;mkdir -p /mnt/ftp/%s&quot;%row[2])</span><br><span class="line">			vsf_chmod = os.system(&quot;chmod 777 /mnt/ftp/%s&quot;%row[2])</span><br><span class="line">			</span><br><span class="line">	cmd_iptable = os.system (&apos;iptables -F &amp;&amp; service iptables save &amp;&amp; setenforce 0&apos;)</span><br><span class="line">	</span><br><span class="line">	cmd_load = os.system(&apos;db_load -T -t hash -f /etc/vsftpd/vsftpuser.txt /etc/vsftpd/vsftpuser.db &amp;&amp; chmod 600 /etc/vsftpd/vsftpuser.db&apos;)</span><br><span class="line">	cmd_pam1 = os.system (&apos;cp /etc/pam.d/vsftpd /etc/pam.d/vsftpd.back&apos;)</span><br><span class="line">	pam_write = open(&quot;/etc/pam.d/vsftpd&quot;,&apos;w&apos;)</span><br><span class="line">	pam_payload1 = &quot;auth required /lib64/security/pam_userdb.so db=/etc/vsftpd/vsftpuser&quot;</span><br><span class="line">	pam_payload2 = &quot;account required /lib64/security/pam_userdb.so db=/etc/vsftpd/vsftpuser&quot;</span><br><span class="line">	pam_payload0 = &quot;#%PAM-1.0&quot;</span><br><span class="line">	pam_write.write(&quot;%s\n%s\n%s\n&quot; %(pam_payload0,pam_payload1,pam_payload2))</span><br><span class="line">	pam_write.close()</span><br><span class="line">	cp_vsfconf = os.system(&quot;cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.back&quot;)</span><br><span class="line">	vsf_conf = os.system(&quot;sed -i &apos;s/anonymous_enable=YES/anonymous_enable=NO/g&apos; /etc/vsftpd/vsftpd.conf&quot;)</span><br><span class="line">	vsf_conf = os.system(&quot;sed -i &apos;s/#chroot_local_user=YES/chroot_local_user=YES/g&apos; /etc/vsftpd/vsftpd.conf&quot; )</span><br><span class="line">	vsfconf_write = open(&quot;/etc/vsftpd/vsftpd.conf&quot;,&quot;a&quot;)</span><br><span class="line">	vsfconf_write.write(&quot;\n%s\n%s\n%s\n&quot;%(&apos;guest_enable=YES&apos;,&apos;guest_username=ftpload&apos;,&apos;user_config_dir=/etc/user_dir_config&apos;))</span><br><span class="line">	vsf_user = os.system(&apos;useradd -s /sbin/nologin ftpload&apos;)</span><br><span class="line">	vsf_chmoduser = os.system(&apos;chmod a-w /home/ftpload&apos;)</span><br><span class="line">	vsf_chkconfig = os.system(&apos;chkconfig --level 2345 vsftpd on&apos;)</span><br><span class="line">	selinux_start = os.system(&quot;sed -i &apos;s/SELINUX=enforcing/SELINUX=disabled/g&apos; /etc/selinux/config&quot;)</span><br><span class="line">	</span><br><span class="line">	#vsf_conf = os.system(&quot;sed -i &apos;s/chroot_local_user=NO/chroot_local_user=YES/g&apos; /etc/vsftpd/vsftpd.conf&quot; )</span><br><span class="line">	#server_vsftp1 = os.system(&quot;service vsftpd restart&quot;)</span><br><span class="line">ftp()</span><br><span class="line">server_vsftp = os.system(&quot;service vsftpd start&quot;)</span><br><span class="line"></span><br><span class="line">print &quot;You Service Start The Success&quot;</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">	vsconf = open(&quot;/etc/vsftpd/vsftpd.conf&quot;,&apos;a&apos;)</span><br><span class="line">	vsconf_py = &quot;%s\r\n%s&quot;%(guest_enable=yes,)</span><br><span class="line">	vsconf.write(str(&quot;guest_enable=yes\r\n&quot;))</span><br><span class="line">&apos;&apos;&apos;</span><br></pre></td></tr></table></figure></p>
-<p>配置dns<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import csv</span><br><span class="line"></span><br><span class="line">def dns(local_ip):</span><br><span class="line">    main_path = &apos;/var/named/chroot/etc/named.conf&apos;</span><br><span class="line">    rfc_path = &apos;/var/named/chroot/etc/named.rfc1912.zones&apos;</span><br><span class="line">    quyu_path = &apos;/var/named/chroot/var/named&apos;</span><br><span class="line">    quyu_path1 = &apos;/var/named/chroot/var/named/chinaskills.com.zone&apos;</span><br><span class="line">    dns_yum = os.system(&quot;yum install bind bind-utils bind-chroot -y&quot;)</span><br><span class="line">    dns_cpconf = os.system(&quot;cp /etc/named.* /var/named/chroot/etc/. &amp;&amp; cp /var/named/named.* %s/.&quot;%quyu_path)</span><br><span class="line">    dns_maincf = os.system(&quot;sed -i &apos;s/127.0.0.1/any/g&apos; %s&quot;%main_path)</span><br><span class="line">    dns_maincf2 = os.system(&quot;sed -i &apos;s/listen-on-v6/#listen-on-v6/g&apos; %s&quot;%main_path)</span><br><span class="line">    dns_maincf3 = os.system(&quot;sed -i &apos;s/localhost;/any;/g&apos; %s&quot;%main_path)</span><br><span class="line">    dns_maincf4 = os.system(&quot;sed -i &apos;s/dnssec-enable yes/dnssec-enable no/g&apos; %s&quot;%main_path)</span><br><span class="line">    dns_maincf5 = os.system(&quot;sed -i &apos;s/dnssec-validation yes/dnssec-validation no/g&apos; %s&quot;%main_path)</span><br><span class="line">    dnsrfc_payload1 = &quot;zone \&quot;chinaskills.com\&quot; IN &#123;&quot;</span><br><span class="line">    dnsrfc_payload2 = &quot;type master;&quot;</span><br><span class="line">    dnsrfc_payload3 = &quot;file \&quot;chinaskills.com.zone\&quot;;&quot;</span><br><span class="line">    dnsrfc_payload4 = &quot;allow-update &#123; none; &#125;;\n&#125;;&quot;</span><br><span class="line">    dnsrfc_write = open(&quot;%s&quot;%rfc_path,&apos;a&apos;)</span><br><span class="line">    dnsrfc_write.write(&quot;\n%s\n%s\n%s\n%s\n&quot;%(dnsrfc_payload1,dnsrfc_payload2,dnsrfc_payload3,dnsrfc_payload4))</span><br><span class="line">    dnsrfc_write.close()</span><br><span class="line">    dns_touch = os.system(&quot;cp %s/named.empty %s/chinaskills.com.zone&quot;%(quyu_path,quyu_path))</span><br><span class="line">    dns_quyu = os.system(&quot;sed -i &apos;s/@ rname.invalid./dns.chinaskills.com. root.chinaskills.com./g&apos; %s&quot;%quyu_path1)</span><br><span class="line">    for i in range(1,4):</span><br><span class="line">        dns_quyu1 = os.system(&quot;sed -i &apos;8d&apos; %s&quot;%quyu_path1)</span><br><span class="line">    dns_payload = &apos; &apos;*8+&apos;NS&apos;+&apos; &apos;*4+&apos;dns.chinaskills.com.&apos;</span><br><span class="line">    dns_payload1 = &apos;dns&apos;+&apos; &apos;*4+&apos;A&apos;+4*&apos; &apos;+str(local_ip)</span><br><span class="line">    dnsqy_write = open(&quot;%s&quot;%quyu_path1,&apos;a&apos;)</span><br><span class="line">    dnsqy_write.write(&quot;%s\n%s&quot;%(dns_payload,dns_payload1))</span><br><span class="line">    dnsqy_write.close()</span><br><span class="line">    with open(&apos;ws2018.csv&apos;,&apos;rb&apos;) as f:</span><br><span class="line">		reader = csv.reader(f)</span><br><span class="line">		for row in reader:</span><br><span class="line">			dnsqy1_open = open(&quot;%s&quot;%quyu_path1,&apos;a&apos;)</span><br><span class="line">			dnsqy1_open.write(&quot;\n%s    A    %s\n&quot;%(row[0],row[4]))</span><br><span class="line">			dnsqy1_open.close()</span><br><span class="line">    dnschown = os.system(&quot;chown -R named:named /var/named/chroot&quot;)</span><br><span class="line">    dns_chkconfig = os.system(&apos;chkconfig --level 2345 named on&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dns(&apos;192.168.1.1&apos;)</span><br><span class="line">dns_server = os.system(&quot;service named start&quot;)</span><br></pre></td></tr></table></figure></p>
-<p>配置http<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import csv</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">def http():</span><br><span class="line">	http_pyvirt = [&apos;&lt;VirtualHost *:80&gt;&apos;,&apos;ServerAdmin root@chinaskills.com&apos;,&apos;DocumentRoot&apos;,&apos;ServerName&apos;\</span><br><span class="line">	,&apos;&lt;/VirtualHost&gt;&apos;]</span><br><span class="line">	http_pydire = [&apos;&lt;Directory &quot;/&quot;&gt;&apos;,&apos;Options FollowSymLinks&apos;,&apos;AllowOverride None&apos;,&apos;Order allow,deny&apos;,&apos;Allow from all&apos;,\</span><br><span class="line">	&apos;&lt;/Directory&gt;&apos;]</span><br><span class="line">	hp_mp = &quot;/etc/httpd/conf/httpd.conf&quot;</span><br><span class="line">	hp_uspt = &quot;/etc/httpd/conf.d&quot;</span><br><span class="line">	http_yum = os.system(&apos;yum install httpd -y&apos;)</span><br><span class="line">	http_sed = os.system(&quot;sed -i &apos;s/#NameVirtualHost/NameVirtualHost/g&apos; %s&quot;%hp_mp)</span><br><span class="line">	with open(&apos;ws2018.csv&apos;,&apos;rb&apos;) as f:</span><br><span class="line">			reader = csv.reader(f)</span><br><span class="line">			for row in reader:</span><br><span class="line">				hp_ftppt = &quot;/mnt/ftp/%s&quot;%row[0]</span><br><span class="line">				hp_user = &quot;%s.chinaskills.com&quot;%row[0]</span><br><span class="line">				hp_ip = &quot;allow from %s&quot;%row[4]</span><br><span class="line">				hp_touch = os.system(&quot;touch %s/%s.conf&quot;%(hp_uspt,row[0]))</span><br><span class="line">				hp_sed1 = os.system(&quot;sed -i &apos;s/User apache/User ftpload/g&apos; %s&quot;%hp_mp)</span><br><span class="line">				hp_sed2 = os.system(&quot;sed -i &apos;s/Group apache/Group ftpload/g&apos; %s&quot;%hp_mp)</span><br><span class="line">				http_open = open(&quot;%s/%s.conf&quot;%(hp_uspt,row[0]),&apos;a&apos;)</span><br><span class="line">				http_open.write(&quot;%s\n%s\n%s %s\n%s %s\n%s\n%s\n%s\n%s\n%s\n%s\n%s&quot;%(http_pyvirt[0],http_pyvirt[1],http_pyvirt[2],hp_ftppt,\</span><br><span class="line">					http_pyvirt[3],hp_user,http_pydire[0],http_pydire[1],http_pydire[2],http_pydire[3],hp_ip,http_pydire[5],http_pyvirt[4]))</span><br><span class="line">				http_open.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http()</span><br><span class="line">http_start = os.system(&quot;service httpd start&quot;)</span><br><span class="line">http_chkconfig = os.system(&quot;chkconfig --level 2345 httpd on&quot;)</span><br></pre></td></tr></table></figure></p>
+        <!--markdown-->环境:centos6.5 配置本地yum源
+<p>python2.7<br>[vplayer url=”<a href="http://122.228.238.158/vhot2.qqvideo.tc.qq.com/AOREL4WspnvAOiKO2cu7iWM8_Jkp7CQb0aobV2cmLjNE/r0604x83i0v.mp4?sdtfrom=v1010&amp;guid=6ca265bc1a779fedafa760ae8c67e970&amp;vkey=9769DF585EE830B610269355CBFC259995D4ABA72034F79CA48EDB29EF38A798C6385ED8D040CD7C87F50045F7DDE1CCA7E48EE1C6756C4FCF166B7B280D8E3B27A984E4C5A2867DABDC6B347F0F38BA2E9990D0F68E7E4E61BAB188EB0E6FDD305FB63483D569E29E37DC016CC4DDB87BFAA9DC97E78070&quot;" target="_blank" rel="noopener">http://122.228.238.158/vhot2.qqvideo.tc.qq.com/AOREL4WspnvAOiKO2cu7iWM8_Jkp7CQb0aobV2cmLjNE/r0604x83i0v.mp4?sdtfrom=v1010&amp;guid=6ca265bc1a779fedafa760ae8c67e970&amp;vkey=9769DF585EE830B610269355CBFC259995D4ABA72034F79CA48EDB29EF38A798C6385ED8D040CD7C87F50045F7DDE1CCA7E48EE1C6756C4FCF166B7B280D8E3B27A984E4C5A2867DABDC6B347F0F38BA2E9990D0F68E7E4E61BAB188EB0E6FDD305FB63483D569E29E37DC016CC4DDB87BFAA9DC97E78070&quot;</a>  /]</p>
+<p>使用方法:<br>1.首先使用第ws2018生成出用户和密码<br><code>命令:python ws2018.py -i [IP段] -n [多少用户]</code><br><code>python ws2018.py -i 192.168.1.1-192.168.1.10 -n 10</code><br>2.运行setservice</p>
+<p>自动生成用户，ip脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line">#coding=utf-8</span><br><span class="line"></span><br><span class="line">import optparse</span><br><span class="line">import random</span><br><span class="line"></span><br><span class="line">parse = optparse.OptionParser(usage=&quot;usage: %prog [options] args&quot;,version=&quot;1.1&quot;) #用optparse库设置参数</span><br><span class="line">parse.add_option(&apos;-n&apos;,dest=&apos;number&apos;,type=int,help=&apos;Student station number&apos;)</span><br><span class="line">parse.add_option(&apos;-i&apos;,dest=&apos;ip_addr&apos;,type=str,help=&apos;IP ADDRESS&apos;)</span><br><span class="line">options,args=parse.parse_args()</span><br><span class="line">print &apos;Example:python ws2018.py -n 5 -i 192.168.1.1-192.168.1.5&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def ip2num(ip):  #ip地方范围</span><br><span class="line">    ips = [int(x) for x in ip.split(&apos;.&apos;)]</span><br><span class="line">    return ips[0]&lt;&lt; 24 | ips[1]&lt;&lt; 16 | ips[2] &lt;&lt; 8 | ips[3]</span><br><span class="line">def num2ip (num):</span><br><span class="line">    return &apos;%s.%s.%s.%s&apos; % ((num &gt;&gt; 24) &amp; 0xff, (num &gt;&gt; 16) &amp; 0xff, (num &gt;&gt; 8) &amp; 0xff, (num &amp; 0xff))</span><br><span class="line">    #return &apos;%s.%s.%s.%s&apos; % ((num &amp; 0xff000000)&gt;&gt;24,(num &amp; 0x00ff0000)&gt;&gt;16,(num &amp; 0x00000ff00)&gt;&gt;8,num &amp; 0x000000ff)</span><br><span class="line">def gen_ip(ip):</span><br><span class="line">    start ,end = [ip2num(x) for x in ip.split(&apos;-&apos;)]</span><br><span class="line">    return [num2ip(num) for num in range(start,end+1) if num &amp; 0xff]</span><br><span class="line"></span><br><span class="line">Ip = gen_ip(options.ip_addr)</span><br><span class="line">opt_num = options.number + 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for g_number in range(1,opt_num):</span><br><span class="line"></span><br><span class="line">	def salt(num):</span><br><span class="line">		ws_id = &quot;ws&quot; + str(g_number)</span><br><span class="line">		</span><br><span class="line">		for salt_num in range(num):</span><br><span class="line">			str_int = &quot;qwertyuiopasdfghjkzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM&quot; #随机生成8位密码</span><br><span class="line">			sa = []</span><br><span class="line">			for i in range(8):</span><br><span class="line">				sa.append(random.choice(str_int))</span><br><span class="line">			salt = &apos;&apos;.join(sa)</span><br><span class="line">			</span><br><span class="line">			test1 = &quot;%s,%d,%s,%s,%s&quot; % (ws_id,g_number,ws_id,salt,Ip[g_number-1])</span><br><span class="line">			</span><br><span class="line"></span><br><span class="line">			print test1</span><br><span class="line">			</span><br><span class="line">			a = open(&apos;./ws2018.csv&apos;,&apos;a&apos;)</span><br><span class="line">			a.write(&quot;%s\n&quot;%test1)</span><br><span class="line">			a.close()</span><br><span class="line">	salt_number = salt(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		#ip_dest = IPy.IP(&quot;%s&quot; % str(options.ip_addr)) # 生成ip</span><br><span class="line">		#for ip_ADDR in ip_dest:</span><br><span class="line">		#	print ip_ADDR</span><br></pre></td></tr></table></figure>
+
+<p>vsftp虚拟用户脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import re</span><br><span class="line">import csv</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def ftp():</span><br><span class="line">	cmd_yum = os.system(&apos;yum install vsftpd db_load httpd -y&apos;)</span><br><span class="line">	with open(&apos;ws2018.csv&apos;,&apos;rb&apos;) as f:</span><br><span class="line">		reader = csv.reader(f)</span><br><span class="line">		for row in reader:</span><br><span class="line">			vsuser = open(&quot;/etc/vsftpd/vsftpuser.txt&quot;,&apos;a&apos;)</span><br><span class="line">			vsuser.write(&quot;%s\n%s\n&quot;%(row[2],row[3]))</span><br><span class="line">			vsuser.close()</span><br><span class="line">			vsf_make = os.system(&apos;mkdir -p /etc/user_dir_config&apos;)</span><br><span class="line">			vsf_touch = os.system(&quot;touch /etc/user_dir_config/%s&quot;%row[2])</span><br><span class="line">			vsf_write = open(&quot;/etc/user_dir_config/%s&quot;%row[2],&apos;w&apos;)</span><br><span class="line">			vsf_payload0 = &quot;anon_world_readable_only=NO&quot;</span><br><span class="line">			vsf_payload1 = &quot;anon_upload_enable=YES&quot;</span><br><span class="line">			vsf_payload2 = &quot;anon_mkdir_write_enable=YES&quot;</span><br><span class="line">			vsf_payload3 = &quot;anon_other_write_enable=YES&quot;</span><br><span class="line">			vsf_payload4 = &quot;local_root=/mnt/ftp/%s&quot;%row[2]</span><br><span class="line">			vsf_payload5 = &quot;write_enable=YES&quot;</span><br><span class="line"></span><br><span class="line">			vsf_write.write(&quot;%s\n%s\n%s\n%s\n%s\n%s\n&quot;%(vsf_payload5,vsf_payload0,vsf_payload1,vsf_payload2,vsf_payload3,vsf_payload4))</span><br><span class="line">			vsf_userhome = os.system(&quot;mkdir -p /mnt/ftp/%s&quot;%row[2])</span><br><span class="line">			vsf_chmod = os.system(&quot;chmod 777 /mnt/ftp/%s&quot;%row[2])</span><br><span class="line">			</span><br><span class="line">	cmd_iptable = os.system (&apos;iptables -F &amp;&amp; service iptables save &amp;&amp; setenforce 0&apos;)</span><br><span class="line">	</span><br><span class="line">	cmd_load = os.system(&apos;db_load -T -t hash -f /etc/vsftpd/vsftpuser.txt /etc/vsftpd/vsftpuser.db &amp;&amp; chmod 600 /etc/vsftpd/vsftpuser.db&apos;)</span><br><span class="line">	cmd_pam1 = os.system (&apos;cp /etc/pam.d/vsftpd /etc/pam.d/vsftpd.back&apos;)</span><br><span class="line">	pam_write = open(&quot;/etc/pam.d/vsftpd&quot;,&apos;w&apos;)</span><br><span class="line">	pam_payload1 = &quot;auth required /lib64/security/pam_userdb.so db=/etc/vsftpd/vsftpuser&quot;</span><br><span class="line">	pam_payload2 = &quot;account required /lib64/security/pam_userdb.so db=/etc/vsftpd/vsftpuser&quot;</span><br><span class="line">	pam_payload0 = &quot;#%PAM-1.0&quot;</span><br><span class="line">	pam_write.write(&quot;%s\n%s\n%s\n&quot; %(pam_payload0,pam_payload1,pam_payload2))</span><br><span class="line">	pam_write.close()</span><br><span class="line">	cp_vsfconf = os.system(&quot;cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.back&quot;)</span><br><span class="line">	vsf_conf = os.system(&quot;sed -i &apos;s/anonymous_enable=YES/anonymous_enable=NO/g&apos; /etc/vsftpd/vsftpd.conf&quot;)</span><br><span class="line">	vsf_conf = os.system(&quot;sed -i &apos;s/#chroot_local_user=YES/chroot_local_user=YES/g&apos; /etc/vsftpd/vsftpd.conf&quot; )</span><br><span class="line">	vsfconf_write = open(&quot;/etc/vsftpd/vsftpd.conf&quot;,&quot;a&quot;)</span><br><span class="line">	vsfconf_write.write(&quot;\n%s\n%s\n%s\n&quot;%(&apos;guest_enable=YES&apos;,&apos;guest_username=ftpload&apos;,&apos;user_config_dir=/etc/user_dir_config&apos;))</span><br><span class="line">	vsf_user = os.system(&apos;useradd -s /sbin/nologin ftpload&apos;)</span><br><span class="line">	vsf_chmoduser = os.system(&apos;chmod a-w /home/ftpload&apos;)</span><br><span class="line">	vsf_chkconfig = os.system(&apos;chkconfig --level 2345 vsftpd on&apos;)</span><br><span class="line">	selinux_start = os.system(&quot;sed -i &apos;s/SELINUX=enforcing/SELINUX=disabled/g&apos; /etc/selinux/config&quot;)</span><br><span class="line">	</span><br><span class="line">	#vsf_conf = os.system(&quot;sed -i &apos;s/chroot_local_user=NO/chroot_local_user=YES/g&apos; /etc/vsftpd/vsftpd.conf&quot; )</span><br><span class="line">	#server_vsftp1 = os.system(&quot;service vsftpd restart&quot;)</span><br><span class="line">ftp()</span><br><span class="line">server_vsftp = os.system(&quot;service vsftpd start&quot;)</span><br><span class="line"></span><br><span class="line">print &quot;You Service Start The Success&quot;</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">	vsconf = open(&quot;/etc/vsftpd/vsftpd.conf&quot;,&apos;a&apos;)</span><br><span class="line">	vsconf_py = &quot;%s\r\n%s&quot;%(guest_enable=yes,)</span><br><span class="line">	vsconf.write(str(&quot;guest_enable=yes\r\n&quot;))</span><br><span class="line">&apos;&apos;&apos;</span><br></pre></td></tr></table></figure>
+
+<p>配置dns</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import csv</span><br><span class="line"></span><br><span class="line">def dns(local_ip):</span><br><span class="line">    main_path = &apos;/var/named/chroot/etc/named.conf&apos;</span><br><span class="line">    rfc_path = &apos;/var/named/chroot/etc/named.rfc1912.zones&apos;</span><br><span class="line">    quyu_path = &apos;/var/named/chroot/var/named&apos;</span><br><span class="line">    quyu_path1 = &apos;/var/named/chroot/var/named/chinaskills.com.zone&apos;</span><br><span class="line">    dns_yum = os.system(&quot;yum install bind bind-utils bind-chroot -y&quot;)</span><br><span class="line">    dns_cpconf = os.system(&quot;cp /etc/named.* /var/named/chroot/etc/. &amp;&amp; cp /var/named/named.* %s/.&quot;%quyu_path)</span><br><span class="line">    dns_maincf = os.system(&quot;sed -i &apos;s/127.0.0.1/any/g&apos; %s&quot;%main_path)</span><br><span class="line">    dns_maincf2 = os.system(&quot;sed -i &apos;s/listen-on-v6/#listen-on-v6/g&apos; %s&quot;%main_path)</span><br><span class="line">    dns_maincf3 = os.system(&quot;sed -i &apos;s/localhost;/any;/g&apos; %s&quot;%main_path)</span><br><span class="line">    dns_maincf4 = os.system(&quot;sed -i &apos;s/dnssec-enable yes/dnssec-enable no/g&apos; %s&quot;%main_path)</span><br><span class="line">    dns_maincf5 = os.system(&quot;sed -i &apos;s/dnssec-validation yes/dnssec-validation no/g&apos; %s&quot;%main_path)</span><br><span class="line">    dnsrfc_payload1 = &quot;zone \&quot;chinaskills.com\&quot; IN &#123;&quot;</span><br><span class="line">    dnsrfc_payload2 = &quot;type master;&quot;</span><br><span class="line">    dnsrfc_payload3 = &quot;file \&quot;chinaskills.com.zone\&quot;;&quot;</span><br><span class="line">    dnsrfc_payload4 = &quot;allow-update &#123; none; &#125;;\n&#125;;&quot;</span><br><span class="line">    dnsrfc_write = open(&quot;%s&quot;%rfc_path,&apos;a&apos;)</span><br><span class="line">    dnsrfc_write.write(&quot;\n%s\n%s\n%s\n%s\n&quot;%(dnsrfc_payload1,dnsrfc_payload2,dnsrfc_payload3,dnsrfc_payload4))</span><br><span class="line">    dnsrfc_write.close()</span><br><span class="line">    dns_touch = os.system(&quot;cp %s/named.empty %s/chinaskills.com.zone&quot;%(quyu_path,quyu_path))</span><br><span class="line">    dns_quyu = os.system(&quot;sed -i &apos;s/@ rname.invalid./dns.chinaskills.com. root.chinaskills.com./g&apos; %s&quot;%quyu_path1)</span><br><span class="line">    for i in range(1,4):</span><br><span class="line">        dns_quyu1 = os.system(&quot;sed -i &apos;8d&apos; %s&quot;%quyu_path1)</span><br><span class="line">    dns_payload = &apos; &apos;*8+&apos;NS&apos;+&apos; &apos;*4+&apos;dns.chinaskills.com.&apos;</span><br><span class="line">    dns_payload1 = &apos;dns&apos;+&apos; &apos;*4+&apos;A&apos;+4*&apos; &apos;+str(local_ip)</span><br><span class="line">    dnsqy_write = open(&quot;%s&quot;%quyu_path1,&apos;a&apos;)</span><br><span class="line">    dnsqy_write.write(&quot;%s\n%s&quot;%(dns_payload,dns_payload1))</span><br><span class="line">    dnsqy_write.close()</span><br><span class="line">    with open(&apos;ws2018.csv&apos;,&apos;rb&apos;) as f:</span><br><span class="line">		reader = csv.reader(f)</span><br><span class="line">		for row in reader:</span><br><span class="line">			dnsqy1_open = open(&quot;%s&quot;%quyu_path1,&apos;a&apos;)</span><br><span class="line">			dnsqy1_open.write(&quot;\n%s    A    %s\n&quot;%(row[0],row[4]))</span><br><span class="line">			dnsqy1_open.close()</span><br><span class="line">    dnschown = os.system(&quot;chown -R named:named /var/named/chroot&quot;)</span><br><span class="line">    dns_chkconfig = os.system(&apos;chkconfig --level 2345 named on&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dns(&apos;192.168.1.1&apos;)</span><br><span class="line">dns_server = os.system(&quot;service named start&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>配置http</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import csv</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">def http():</span><br><span class="line">	http_pyvirt = [&apos;&lt;VirtualHost *:80&gt;&apos;,&apos;ServerAdmin root@chinaskills.com&apos;,&apos;DocumentRoot&apos;,&apos;ServerName&apos;\</span><br><span class="line">	,&apos;&lt;/VirtualHost&gt;&apos;]</span><br><span class="line">	http_pydire = [&apos;&lt;Directory &quot;/&quot;&gt;&apos;,&apos;Options FollowSymLinks&apos;,&apos;AllowOverride None&apos;,&apos;Order allow,deny&apos;,&apos;Allow from all&apos;,\</span><br><span class="line">	&apos;&lt;/Directory&gt;&apos;]</span><br><span class="line">	hp_mp = &quot;/etc/httpd/conf/httpd.conf&quot;</span><br><span class="line">	hp_uspt = &quot;/etc/httpd/conf.d&quot;</span><br><span class="line">	http_yum = os.system(&apos;yum install httpd -y&apos;)</span><br><span class="line">	http_sed = os.system(&quot;sed -i &apos;s/#NameVirtualHost/NameVirtualHost/g&apos; %s&quot;%hp_mp)</span><br><span class="line">	with open(&apos;ws2018.csv&apos;,&apos;rb&apos;) as f:</span><br><span class="line">			reader = csv.reader(f)</span><br><span class="line">			for row in reader:</span><br><span class="line">				hp_ftppt = &quot;/mnt/ftp/%s&quot;%row[0]</span><br><span class="line">				hp_user = &quot;%s.chinaskills.com&quot;%row[0]</span><br><span class="line">				hp_ip = &quot;allow from %s&quot;%row[4]</span><br><span class="line">				hp_touch = os.system(&quot;touch %s/%s.conf&quot;%(hp_uspt,row[0]))</span><br><span class="line">				hp_sed1 = os.system(&quot;sed -i &apos;s/User apache/User ftpload/g&apos; %s&quot;%hp_mp)</span><br><span class="line">				hp_sed2 = os.system(&quot;sed -i &apos;s/Group apache/Group ftpload/g&apos; %s&quot;%hp_mp)</span><br><span class="line">				http_open = open(&quot;%s/%s.conf&quot;%(hp_uspt,row[0]),&apos;a&apos;)</span><br><span class="line">				http_open.write(&quot;%s\n%s\n%s %s\n%s %s\n%s\n%s\n%s\n%s\n%s\n%s\n%s&quot;%(http_pyvirt[0],http_pyvirt[1],http_pyvirt[2],hp_ftppt,\</span><br><span class="line">					http_pyvirt[3],hp_user,http_pydire[0],http_pydire[1],http_pydire[2],http_pydire[3],hp_ip,http_pydire[5],http_pyvirt[4]))</span><br><span class="line">				http_open.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http()</span><br><span class="line">http_start = os.system(&quot;service httpd start&quot;)</span><br><span class="line">http_chkconfig = os.system(&quot;chkconfig --level 2345 httpd on&quot;)</span><br></pre></td></tr></table></figure>
+
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://vuln.top">Fidcer</a>
-            </p><p>原文链接：<a href="https://vuln.top/2019/02/21/37/">https://vuln.top/2019/02/21/37/</a>
-            </p><p>发表日期：<a href="https://vuln.top/2019/02/21/37/">February 21st 2019, 11:45:05 am</a>
-            </p><p>更新日期：<a href="https://vuln.top/2019/02/21/37/">February 21st 2019, 11:45:05 am</a>
-            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+            <p>原文链接：<a href="https://vuln.top/2019/02/21/37/">https://vuln.top/2019/02/21/37/</a>
+            <p>发表日期：<a href="https://vuln.top/2019/02/21/37/">February 21st 2019, 11:45:05 am</a>
+            <p>更新日期：<a href="https://vuln.top/2019/02/21/37/">February 21st 2019, 11:45:05 am</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator  -->
@@ -416,7 +427,7 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2019/02/21/38/" title="apache 使用 mysql基本身份验证">
+                <a href= "/2019/02/21/38/" title= "apache 使用 mysql基本身份验证">
                     <div class="nextTitle">apache 使用 mysql基本身份验证</div>
                 </a>
             
@@ -424,7 +435,7 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/02/21/32/" title="vsftpd 配置参数">
+                <a href= "/2019/02/21/32/" title= "vsftpd 配置参数">
                     <div class="prevTitle">vsftpd 配置参数</div>
                 </a>
             
@@ -443,7 +454,7 @@ height:50vh;
     
     
     <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <div id="comment"></div>
     <script>
     new Valine({
@@ -472,13 +483,13 @@ height:50vh;
     
         
             
-                <a href="mailto:524470869@qq.com" class="iconfont-archer email" title="email"></a>
+                <a href="mailto:524470869@qq.com" class="iconfont-archer email" title=email ></a>
             
         
     
         
             
-                <a href="//h1dery.github.io" class="iconfont-archer github" target="_blank" title="github"></a>
+                <a href="//h1dery.github.io" class="iconfont-archer github" target="_blank" title=github></a>
             
         
     
@@ -518,7 +529,7 @@ height:50vh;
     
         
             
-                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
             
         
     
@@ -915,9 +926,18 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 29
+        Total : 30
         </div>
         <!-- search  -->
         
@@ -933,12 +953,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href="/2019/07/18/100/">帮好朋友挂个广告</a>
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/137/" >豌豆杯入学ctf</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/116/">mac上msf配置环境的坑</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2019/07/18/100/" >帮好朋友挂个广告</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2019/04/26/2019-48814/" >cnvd-c-2019-48814 批量getshell</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/57/" >[读书笔记] mail理论</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/58/" >vpn几种类型优缺点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/116/" >mac上msf配置环境的坑</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/10/" >python socket 用法</a>
         </li>
     
     
@@ -952,7 +997,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/124/">记录下一道web题</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/02/21/124/" >记录下一道web题</a>
         </li>
     
     
@@ -966,7 +1011,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/164/">Web中的条件竞争漏洞</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/02/21/164/" >Web中的条件竞争漏洞</a>
         </li>
     
     
@@ -980,62 +1025,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/12</span><a class="archive-post-title" href="/2019/10/12/内网渗透/">CTF内网渗透题</a>
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/28/" >centos6.5 vsftpd 虚拟用户</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href="/2019/10/10/137/">豌豆杯入学ctf</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href="/2019/09/09/pentest/">自己整理的信息收集1.0思维导图</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href="/2019/07/18/80/">Uscms代码审计</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/26</span><a class="archive-post-title" href="/2019/04/26/2019-48814/">cnvd-c-2019-48814 批量getshell</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/24</span><a class="archive-post-title" href="/2019/02/24/总结2018年/">总结2018</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/57/">[读书笔记] mail理论</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/58/">vpn几种类型优缺点</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/10/">python socket 用法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/28/">centos6.5 vsftpd 虚拟用户</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/27/">centos6.5 搭建pxe 服务器</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/21/">某CMS V5.7 SP2 后台Getshell</a>
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/21/" >某CMS V5.7 SP2 后台Getshell</a>
         </li>
     
     
@@ -1049,7 +1044,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/31/">为某个项目写的简单生成csv的python脚本</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/10/14/10-1/" >武夷山之旅</a>
         </li>
     
     
@@ -1063,7 +1058,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/32/">vsftpd 配置参数</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/02/21/32/" >vsftpd 配置参数</a>
         </li>
     
     
@@ -1077,7 +1072,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/40/">Linux软件安装 ./configure,make,make install的作用</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/02/21/31/" >为某个项目写的简单生成csv的python脚本</a>
         </li>
     
     
@@ -1091,7 +1086,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/38/">apache 使用 mysql基本身份验证</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/02/21/30/" >php.ini 加固</a>
         </li>
     
     
@@ -1105,7 +1100,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/45/">msfvenom 进阶</a>
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/27/" >centos6.5 搭建pxe 服务器</a>
         </li>
     
     
@@ -1119,21 +1114,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/Retaddr/">Retaddr</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/27/casino/">Casino Royale: 1</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/02/21/38/" >apache 使用 mysql基本身份验证</a>
         </li>
     
     
@@ -1147,7 +1128,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/9/">python 实现局域网内arp欺骗</a>
+            <span class="archive-post-date">10/12</span><a class="archive-post-title" href= "/2019/10/12/内网渗透/" >CTF内网渗透题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/pentest/" >自己整理的信息收集1.0思维导图</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/45/" >msfvenom 进阶</a>
         </li>
     
     
@@ -1161,7 +1152,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/66/">CVE-2017-11882复现</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/02/21/66/" >CVE-2017-11882复现</a>
         </li>
     
     
@@ -1175,21 +1166,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/77/">isg 3道web wp</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/30/">php.ini 加固</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/02/21/77/" >isg 3道web wp</a>
         </li>
     
     
@@ -1203,7 +1180,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/21</span><a class="archive-post-title" href="/2019/02/21/让终端走代理的方法/">让终端走代理的方法</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2019/07/18/80/" >Uscms代码审计</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/9/" >python 实现局域网内arp欺骗</a>
         </li>
     
     
@@ -1217,10 +1199,71 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/21/37/">centos 6.5 自动配置vsftp http dns</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/04/19/Retaddr/" >Retaddr</a>
         </li>
     
-    </ul></div>
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/02/27/casino/" >Casino Royale: 1</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/24</span><a class="archive-post-title" href= "/2019/02/24/总结2018年/" >总结2018</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/让终端走代理的方法/" >让终端走代理的方法</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/02/21/40/" >Linux软件安装 ./configure,make,make install的作用</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/02/21/37/" >centos 6.5 自动配置vsftp http dns</a>
+        </li>
+    
+    </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
@@ -1228,10 +1271,10 @@ top:50vh;
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br>
-    1、请确保node版本大于6.2<br>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
     3、在根目录_config.yml里添加配置：
     <pre style="color: #787878; font-size: 0.6rem;">
 jsonContent:
