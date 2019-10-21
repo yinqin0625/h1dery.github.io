@@ -107,28 +107,6 @@
   </entry>
   
   <entry>
-    <title>帮好朋友挂个广告</title>
-    <link href="https://vuln.top/2019/07/18/100/"/>
-    <id>https://vuln.top/2019/07/18/100/</id>
-    <published>2019-07-18T15:10:21.494Z</published>
-    <updated>2019-07-18T15:10:21.494Z</updated>
-    
-    <content type="html"><![CDATA[<p>他的博客：<a href="https://blog.csdn.net/qq_40478570/" target="_blank" rel="noopener">https://blog.csdn.net/qq_40478570/</a></p><p>博主现为上海思邱实业公司总经理，诚意招商</p><p>营业范围：联想戴尔等主流厂商服务器，办公电脑，显示器</p><p>华为华三思科等主流厂商数通产品，路由器，交换机，防火墙，无线等等</p><p>提供企业网络应急维修，网络周期性维护，服务器应急维修，服务器周期性维护，云计算部署，云存储部署等等各种各样的服务</p><p>只要你有IT行业相关的需求，那就可以联系我们</p><p>联系方式：17621969147 李先生</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;他的博客：&lt;a href=&quot;https://blog.csdn.net/qq_40478570/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_40478570/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;博主现为上海思邱实业
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>cnvd-c-2019-48814 批量getshell</title>
     <link href="https://vuln.top/2019/04/26/2019-48814/"/>
     <id>https://vuln.top/2019/04/26/2019-48814/</id>
@@ -466,6 +444,29 @@
         &lt;!--markdown--&gt;自行安装编译Linux软件过程中会执行三个步骤：./configure,make,make install。这三个步骤在安装过程中到底起到什么作用，先前一直糊里糊涂的，今天就来一起学习下。
 
 &lt;p&gt;./configure(配置）&lt;br&gt;configu
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>apache 使用 mysql基本身份验证</title>
+    <link href="https://vuln.top/2019/02/21/38/"/>
+    <id>https://vuln.top/2019/02/21/38/</id>
+    <published>2019-02-21T03:45:05.838Z</published>
+    <updated>2019-02-21T03:45:05.848Z</updated>
+    
+    <content type="html"><![CDATA[<!--markdown-->第一步安装所有需要的组建(mysql,apache,apache_mysql认证)<p><code>yum install -y mysql-server mod_auth_mysql mysql httpd</code></p><p><img src="http://ovgfhrbzx.bkt.clouddn.com/18-3-16/2498692.jpg" alt></p><p>首先配置mysql 账号密码（这里我们就设置全明文验证）<br>设置mysql密码 <code>mysqladmin -u root password 123456</code><br>如果mysql 密码忘记了可以用这个命令<code>mysqladmin -u root flush-privileges password "newpassword"</code></p><p>登陆mysql<br><code>mysql -u root -p</code><br>创建数据库<br><code>create database httpauth;(一定要加;）</code><br>使用数据库<br><code>use httpauth;</code><br>创建表<br><code>create table auth(name char(25),pwd char(25));</code><br>写入auth数据库<br><code>INSERT INTO auth(name,pwd) VALUES('user03',encrypt(111));</code><br><img src="http://ovgfhrbzx.bkt.clouddn.com/18-3-16/64913229.jpg" alt></p><p>我们访问到/etc/httpd/conf.d这个目录<br><img src="http://ovgfhrbzx.bkt.clouddn.com/18-3-16/61990036.jpg" alt></p><p>配置auth_mysql.conf<br>在最下面配置<br><img src="http://ovgfhrbzx.bkt.clouddn.com/18-3-16/61300409.jpg" alt></p><p>为什么我们在auth_mysql.conf 配置 主策略能读到<br><img src="http://ovgfhrbzx.bkt.clouddn.com/18-3-16/88433178.jpg" alt></p><p>启动服务<br><code>service httpd start</code></p><p><img src="http://ovgfhrbzx.bkt.clouddn.com/18-3-16/56655948.jpg" alt></p><p><img src="http://ovgfhrbzx.bkt.clouddn.com/18-3-16/82301276.jpg" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!--markdown--&gt;第一步安装所有需要的组建(mysql,apache,apache_mysql认证)
+&lt;p&gt;&lt;code&gt;yum install -y mysql-server mod_auth_mysql mysql httpd&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img 
       
     
     </summary>
